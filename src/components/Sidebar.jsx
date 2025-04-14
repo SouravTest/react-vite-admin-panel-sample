@@ -1,87 +1,76 @@
-// components/Sidebar.jsx
-
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import "./sidebar.css";
 
 const Sidebar = () => {
   const location = useLocation();
-  const [openMenu, setOpenMenu] = useState(null);
+  const [openMenu, setOpenMenu] = useState('');
 
-  const toggleMenu = (menuName) => {
-    setOpenMenu(openMenu === menuName ? null : menuName);
+  const handleToggle = (menu) => {
+    setOpenMenu(openMenu === menu ? '' : menu);
   };
 
   return (
-    <aside className="sidebar">
-      <div className="sidebar-header">Admin Panel</div>
-      <ul className="sidebar-menu">
-        <li>
-          <Link to="/dashboard" className={location.pathname === "/dashboard" ? "active" : ""}>
-            Dashboard
+    <div className="bg-dark text-white min-vh-100 p-3" style={{ width: '250px' }}>
+      <h4 className="text-center mb-4">Admin Panel</h4>
+      <ul className="nav flex-column">
+
+        <li className="nav-item">
+          <Link to="/dashboard" className={`nav-link text-white ${location.pathname === "/dashboard" ? "active bg-secondary" : ""}`}>
+          <i className="fa-solid fa-gauge"></i> &nbsp; Dashboard
           </Link>
         </li>
 
-        <li>
-          <button onClick={() => toggleMenu("users")} className="submenu-toggle">
+        {/* Users Menu */}
+        <li className="nav-item">
+          <button
+            className="nav-link text-white w-100 text-start d-flex justify-content-between align-items-center"
+            onClick={() => handleToggle('users')}
+            aria-expanded={openMenu === 'users'}
+          >
             Users
+            <i className={`fa-solid fa-chevron-down transition ${openMenu === 'users' ? 'rotate-180' : ''}`}></i>
           </button>
-          <ul className={`submenu ${openMenu === "users" ? "open" : ""}`}>
-            <li>
-              <Link to="/dashboard/users" className={location.pathname === "/dashboard/users" ? "active" : ""}>
-                All Users
+          <ul className={`nav flex-column ms-3 collapse ${openMenu === 'users' ? 'show' : ''}`}>
+            <li className="nav-item">
+              <Link to="/dashboard/users" className={`nav-link text-white ${location.pathname === "/dashboard/users" ? "active bg-secondary" : ""}`}>
+                <i className="fa-solid fa-circle-dot"></i> &nbsp; All Users
               </Link>
             </li>
-            <li>
-              <Link to="/dashboard/users/create" className={location.pathname === "/dashboard/users/create" ? "active" : ""}>
-                Create User
+            <li className="nav-item">
+              <Link to="/dashboard/users/create" className={`nav-link text-white ${location.pathname === "/dashboard/users/create" ? "active bg-secondary" : ""}`}>
+                <i className="fa-solid fa-circle-dot"></i> &nbsp; Create User
               </Link>
             </li>
           </ul>
         </li>
 
-        <li>
-          <button onClick={() => toggleMenu("settings")} className="submenu-toggle">
+        {/* Settings Menu */}
+        <li className="nav-item">
+          <button
+            className="nav-link text-white w-100 text-start d-flex justify-content-between align-items-center"
+            onClick={() => handleToggle('settings')}
+            aria-expanded={openMenu === 'settings'}
+          >
             Settings
+            <i className={`fa-solid fa-chevron-down transition ${openMenu === 'settings' ? 'rotate-180' : ''}`}></i>
           </button>
-          <ul className={`submenu ${openMenu === "settings" ? "open" : ""}`}>
-            <li>
-              <Link to="/dashboard/settings/profile" className={location.pathname === "/dashboard/settings/profile" ? "active" : ""}>
+          <ul className={`nav flex-column ms-3 collapse ${openMenu === 'settings' ? 'show' : ''}`}>
+            <li className="nav-item">
+              <Link to="/dashboard/settings/profile" className={`nav-link text-white ${location.pathname === "/dashboard/settings/profile" ? "active bg-secondary" : ""}`}>
                 Profile
               </Link>
             </li>
-            <li>
-              <Link to="/dashboard/settings/security" className={location.pathname === "/dashboard/settings/security" ? "active" : ""}>
+            <li className="nav-item">
+              <Link to="/dashboard/settings/security" className={`nav-link text-white ${location.pathname === "/dashboard/settings/security" ? "active bg-secondary" : ""}`}>
                 Security
               </Link>
             </li>
           </ul>
         </li>
+
       </ul>
-    </aside>
+    </div>
   );
 };
 
 export default Sidebar;
-
-
-
-
-
-
-// import { Link } from 'react-router-dom';
-
-// const Sidebar = () => {
-//   return (
-//     <div style={{ width: '200px', background: '#343a40', color: '#fff', height: '100vh' }}>
-//       <h2 style={{ padding: '1rem' }}>Admin Panel</h2>
-//       <nav style={{ display: 'flex', flexDirection: 'column', padding: '0 1rem' }}>
-//         <Link to="/dashboard" style={{ color: '#fff', padding: '0.5rem 0' }}>Dashboard</Link>
-//         <Link to="/dashboard/users" style={{ color: '#fff', padding: '0.5rem 0' }}>Users</Link>
-//         <Link to="/dashboard/settings" style={{ color: '#fff', padding: '0.5rem 0' }}>Settings</Link>
-//       </nav>
-//     </div>
-//   );
-// };
-
-// export default Sidebar;

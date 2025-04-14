@@ -1,17 +1,20 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/navbar';
 
 
 const AdminLayout = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
   return (
-    <div className="admin-container" style={{ display: 'flex' }}>
-      <Sidebar />
-      <div style={{ flex: 1 }}>
-        <Navbar />
-        <div style={{ padding: '1rem' }}>
+    <div className="d-flex">
+      {sidebarOpen && <Sidebar />}
+      <div className="flex-grow-1">
+        <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+        <main className="p-3">
           <Outlet />
-        </div>
+        </main>
       </div>
     </div>
   );
