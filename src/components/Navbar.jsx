@@ -5,7 +5,7 @@ const Navbar = ({ toggleSidebar , response }) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-secondary px-3 d-flex justify-content-between align-items-center">
       {/* Sidebar Toggle (Left) */}
       <button className="btn btn-outline-light me-2" onClick={toggleSidebar}>
-        {response ?  <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>  }
+        {!response ?  <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>  }
         
       </button>
 

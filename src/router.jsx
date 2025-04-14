@@ -8,6 +8,7 @@ import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import AdminLayout from "./layouts/AdminLayout";
 import NotFoundPage from "./pages/NotFoundPage";
+import CreateUser from "./pages/CreateUser";
 
 
 function RouteConfig() {
@@ -20,6 +21,7 @@ function RouteConfig() {
         <Route index element={<Dashboard />} />
         <Route path="users" element={<Users />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="createUser" element={<CreateUser /> } />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

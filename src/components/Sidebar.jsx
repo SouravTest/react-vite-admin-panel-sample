@@ -37,7 +37,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/dashboard/users/create" className={`nav-link text-white ${location.pathname === "/dashboard/users/create" ? "active bg-secondary" : ""}`}>
+              <Link to="/dashboard/createUser" className={`nav-link text-white ${location.pathname === "/dashboard/users/create" ? "active bg-secondary" : ""}`}>
                 <i className="fa-solid fa-circle-dot"></i> &nbsp; Create User
               </Link>
             </li>

@@ -1,3 +1,5 @@
 react-vite-admin-panel-sample
 
 npm i react-router-dom axios dotenv react-toastify 
+
+npm i  react-data-table-component
