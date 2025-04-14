@@ -1,10 +1,12 @@
 // components/Navbar.jsx
-const Navbar = ({ toggleSidebar }) => {
+const Navbar = ({ toggleSidebar , response }) => {  
+  console.log(response);
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-secondary px-3 d-flex justify-content-between align-items-center">
       {/* Sidebar Toggle (Left) */}
       <button className="btn btn-outline-light me-2" onClick={toggleSidebar}>
-        <i className="fa-solid fa-bars"></i>
+        {response ?  <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>  }
+        
       </button>
 
       {/* Center: Admin name */}
