@@ -18,4 +18,23 @@ A modern, fast, and lightweight **Admin Panel** built with **React** and **Vite*
 
 ## 📁 Project Structure
 
-SOURAV KARMAKAR
+src/
+├── assets/
+│   └── logo.png
+├── components/
+│   ├── Sidebar.jsx
+│   └── Navbar.jsx
+├── layouts/
+│   └── AdminLayout.jsx
+├── pages/
+│   ├── Dashboard.jsx
+│   ├── Users.jsx
+│   └── Settings.jsx
+├── App.jsx
+├── main.jsx
+└── routes.jsx
+
+
+
+***
+😊 SOURAV KARMAKAR 😊👍
