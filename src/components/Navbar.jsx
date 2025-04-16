@@ -41,6 +41,11 @@ const Navbar = ({ toggleSidebar , response }) => {
           </button>
           <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
             <li>
+              <a className="dropdown-item" href="/">
+              <i class="fa-solid fa-user me-2"></i>Profile
+              </a>
+            </li>
+            <li>
               <a className="dropdown-item" href="/dashboard/settings">
                 <i className="fa-solid fa-gear me-2"></i>Settings
               </a>
